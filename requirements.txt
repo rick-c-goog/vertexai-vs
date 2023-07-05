@@ -1,4 +1,5 @@
 langchain 
+flask
 streamlit 
 streamlit-chat 
 streamlit-extras

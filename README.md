@@ -104,20 +104,20 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 ```
 4. Build Image
 ```bash
-docker build . -t us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-vs:latest
+docker build . -t us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-re:latest
 ```
 
 5. Push to Artifact Registry
 ```bash
 gcloud auth configure-docker us-east1-docker.pkg.dev
-docker push us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-vs:latest
+docker push us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-re:latest
 ```
 
 6. Deploy to cloud run
 ```
 
   gcloud run deploy $PROJECT_ID \
-    --image=us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-vs:latest \
+    --image=us-east1-docker.pkg.dev/$PROJECT_ID/app/vertex-re:latest \
     --region=us-east1 \
     --service-account=vertex-ai-consumer@$PROJECT_ID.iam.gserviceaccount.com \
     --allow-unauthenticated \
