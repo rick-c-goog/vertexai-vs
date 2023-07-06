@@ -1,5 +1,5 @@
 import vertexai
-from vertexai.language_models import TextGenerationModel
+from vertexai.preview.language_models import TextGenerationModel
 
 def predict_llm_property( input_text: str):
     vertexai.init(project="rick-vertex-ai", location="us-central1")
@@ -43,7 +43,7 @@ Stunning large late 80’s contemporary home with soaring ceilings and windows, 
 input: {input_text} 
 
 
-""".format(input=input_text),
+""".format(input_text=input_text),
     **parameters
 )
     return response.text 
