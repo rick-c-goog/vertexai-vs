@@ -1,30 +1,17 @@
 import vertexai
-from langchain.llms import VertexAI
-from langchain import PromptTemplate
-from google.cloud import aiplatform
-from google.protobuf import json_format
-from google.protobuf.struct_pb2 import Value
+from vertexai.language_models import TextGenerationModel
 
-
-def predict_llm_property(input_text: str):
+def predict_llm_property( input_text: str):
     vertexai.init(project="rick-vertex-ai", location="us-central1")
-    #parameters = {
-    #     "temperature": 0.7,
-    #     "max_output_tokens": 512,
-    #     "top_p": 0.8,
-    #     "top_k": 35   
-    #}
-    #model = TextGenerationModel.from_pretrained("text-bison@001")
-    llm = VertexAI(
-    model_name='text-bison@001',
-    max_output_tokens=256,
-    temperature=0.8,
-    top_p=0.8,
-    top_k=40,
-    verbose=True,
-    )
-
-    template = """ You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
+    parameters = {
+      "temperature": 0.8,
+      "max_output_tokens": 512,
+      "top_p": 0.8,
+      "top_k": 35
+    }
+    model = TextGenerationModel.from_pretrained("text-bison@001")
+    response = model.predict(
+    """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
 based on key facts from information provided
 Tells a Story
 Highlight the unobvious
@@ -49,21 +36,14 @@ Accentuate the key amenities
 Less than 400 words
 
 Examples:
-A REWARDING ESCAPE PEACEFULLY SITUATED: Luxurious and upgraded, this 4 bedroom, 4.5 bathroom home of 5,281 sq. ft. (including poolhouse, per independent third-party measurement) rests on a lot of 1.23 acres (per county) on a peaceful cul-de-sac in the Lakeside neighborhood. Richly-appointed spaces include large gathering areas, a bright, professional-grade kitchen, spectacular dining room, two walk-out master suites, and a home theater. Contemporary amenities include solar PV and a Tesla EV charging station. The expansive backyard includes a sparkling pool and spa plus a comfortable poolhouse all in private, verdant surroundings. You will appreciate the short drive to downtown Los Altos, Rancho Shopping Center, access to Interstate 280, and numerous parks and preserves.
+A REWARDING ESCAPE PEACEFULLY SITUATED: Luxurious and upgraded, this 4 bedroom, 4.5 bathroom home of 5,281 sq. ft. (including poolhouse, per independent third-party measurement) rests on a lot of 1.23 acres (per county) on a peaceful cul-de-sac in the Lakeside neighborhood. Richly-appointed spaces include large gathering areas, a bright, professional-grade kitchen, spectacular dining room, two walk-out master suites, and a home theater. Contemporary amenities include solar PV and a Tesla EV charging station. The expansive backyard includes a sparkling pool and spa plus a comfortable poolhouse all in private, verdant surroundings. You’ll appreciate the short drive to downtown Los Altos, Rancho Shopping Center, access to Interstate 280, and numerous parks and preserves.
 
-Stunning large late 80s contemporary home with soaring ceilings and windows, split levels, great floor plan including open dining and living room. Located in the beautiful hilly and treed, desirable Windmill Hill section of Desoto you are conveniently located to shops, dining, and 20 minutes to downtown Dallas. This 3 bedroom, 3.1 bath home is large and accommodating to both guests for entertaining with 2 living areas, office, wet bar, with a Master suite located on the 1st floor. Great structure and bones and are waiting for new owners to bring their decorating ideas. Wonderful opportunity!
+Stunning large late 80’s contemporary home with soaring ceilings and windows, split levels, great floor plan including open dining and living room. Located in the beautiful hilly and treed, desirable Windmill Hill section of Desoto you are conveniently located to shops, dining, and 20 minutes to downtown Dallas. This 3 bedroom, 3.1 bath home is large and accommodating to both guests for entertaining with 2 living areas, office, wet bar, with a Master suite located on the 1st floor. Great structure and bones and are waiting for new owners to bring their decorating ideas. Wonderful opportunity!
 
-input: {input_text}
+input: {input_text} 
 
-output:
-"""
 
-    prompt = PromptTemplate(
-     input_variables=["input_text"],
-     template=template,
-     )
-
-    final_prompt = prompt.format(input_text=input_text)    
-    
-    
-    return llm(final_prompt)
+""".format(input=input_text),
+    **parameters
+)
+    return response.text 
