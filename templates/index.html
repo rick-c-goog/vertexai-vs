@@ -7,20 +7,26 @@
 <body>
     <h1>Real Estate AI Assistant</h1>
     <form action="/submit" method="post">
-        <label for="input_text" class="large-label">About Property:</label><br>
-        <input type="text" id="input_text" name="input_text"><br>
-        
-        <input type="radio" id="rewrite" name="options" value="rewrite">
-        <label for="rewrite" class="large-label">Rewrite</label>
-        <input type="radio" id="summary" name="options" value="summary">
-        <label for="css" class="large-label">Summary</label>
-        <input type="radio" id="email" name="options" value="email">
-        <label for="email" class="large-label">JavaScript</label>
-        <input type="radio" id="open" name="options" value="open">
-        <label for="open" class="large-label">Open House</label><br>
-        
-        <label for="output_text" class="large-label">AI Output:</label><br>
-        <input type="text" id="output_text" name="output_text"><br><br>
+        <div class="full-width">
+         <label for="input_text" class="large-label">About Property:</label><br>
+         <input type="textarea" id="input_text" name="input_text"><br>
+        </div>
+        <div>
+          <fieldset>
+           <input type="radio" id="rewrite" name="options" value="rewrite">
+           <label for="rewrite" class="large-label">Rewrite</label>
+           <input type="radio" id="summary" name="options" value="summary">
+           <label for="summary" class="large-label">Summary</label>
+           <input type="radio" id="email" name="options" value="email">
+           <label for="email" class="large-label">JavaScript</label>
+           <input type="radio" id="open" name="options" value="open">
+           <label for="open" class="large-label">Open House</label><br>
+        </fieldset>
+        </div>
+        <div class="full-width">
+          <label for="output_text" class="large-label">AI Output:</label><br>
+          <input type="textarea" id="output_text" name="output_text"><br><br>
+        </div>
         <input type="submit" value="Submit">
       </form>
 </body>
