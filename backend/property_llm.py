@@ -24,7 +24,7 @@ def predict_llm_property( input_text: str):
       max_output_tokens=500,
       temperature=0.8,
       top_p=0.8,
-      top_k=40,
+      top_k=35,
       verbose=True,
     )    
     
