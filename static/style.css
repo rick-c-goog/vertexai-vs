@@ -27,7 +27,6 @@ body {
     grid-column: span 2;
   }
 
-
 button {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -45,11 +44,27 @@ textarea {
     padding: 0.5rem 0.75rem;
   }
 
-  textarea {
+textarea {
     min-height: 10rem;
+}
+
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
+input[type="checkbox"] {
+  height: 1.5em;
+  width: 1.5em;
+  vertical-align: middle;
+}
 
-
+input[type="radio"],
 input[type="checkbox"] {
   height: 1.5em;
   width: 1.5em;
@@ -59,14 +74,12 @@ input[type="checkbox"] {
 input[type="radio"] {
   border-radius: 50%;
 }
-
 input[type="radio"]:checked {
     background-image: radial-gradient(
       hsl(213, 73%, 50%) 40%,
       transparent calc(40% + 1px)
     );
   }
-
   .full-width {
     grid-column: span 2;
   }
@@ -76,7 +89,13 @@ input[type="radio"]:checked {
     font: bold 1.5rem sans-serif;
     margin-bottom: 0.5rem;
   }
-
+  .small-label {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 0.25rem;
+    margin-right: 1.5rem;
+    font: 1.25rem sans-serif;
+  }
 
   button[type="submit"] {
     background-color: hsl(213, 73%, 50%);
