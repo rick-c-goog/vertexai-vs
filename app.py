@@ -10,7 +10,7 @@ def submit():
     input_text = request.form.get("input_text")
     
     option_text = request.form.get("options")
-    app.logger.info('pass in output: %s ', output_text)
+    app.logger.info('pass in output: %s ', input_text)
     output_text=predict_llm_property("who am I")
     app.logger.info('output: %s ', output_text)
     return render_template("index.html", output_text=output_text)
