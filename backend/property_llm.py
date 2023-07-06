@@ -1,8 +1,9 @@
 import vertexai
 from vertexai.preview.language_models import TextGenerationModel
+from google.cloud import aiplatform
 
 def predict_llm_property( input_text: str):
-    print("start init function")
+    
     vertexai.init(project="rick-vertex-ai", location="us-central1")
     parameters = {
       "temperature": 0.8,
@@ -10,7 +11,7 @@ def predict_llm_property( input_text: str):
       "top_p": 0.8,
       "top_k": 35
     }
-    print("start model initilization")
+
     model = TextGenerationModel.from_pretrained("text-bison@001")
     print("debug rick")
     response = model.predict(
