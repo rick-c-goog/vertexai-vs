@@ -10,6 +10,7 @@ def predict_llm_property( input_text: str):
       "top_k": 35
     }
     model = TextGenerationModel.from_pretrained("text-bison@001")
+    print("debug rick")
     response = model.predict(
     """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
 based on key facts from information provided
@@ -46,4 +47,5 @@ input: {input_text}
 """.format(input_text=input_text),
     **parameters
 )
+    print(response.text)
     return response.text 
