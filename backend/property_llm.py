@@ -1,10 +1,16 @@
+
+from google.cloud import aiplatform
 import vertexai
 from vertexai.preview.language_models import TextGenerationModel
-from google.cloud import aiplatform
+from typing import Dict
+import langchain
+
+from langchain.llms import VertexAI
+from langchain import PromptTemplate
 
 def predict_llm_property( input_text: str):
     
-    #vertexai.init(project="rick-vertex-ai", location="us-central1")
+    vertexai.init(project="rick-vertex-ai", location="us-central1")
     parameters = {
       "temperature": 0.8,
       "max_output_tokens": 512,
@@ -12,10 +18,21 @@ def predict_llm_property( input_text: str):
       "top_k": 35
     }
 
-    model = TextGenerationModel.from_pretrained("text-bison@001")
+    #model = TextGenerationModel.from_pretrained("text-bison@001")
+    llm = VertexAI(
+      model_name='text-bison@001',
+      max_output_tokens=500,
+      temperature=0.8,
+      top_p=0.8,
+      top_k=40,
+      verbose=True,
+    )    
+    
     print("debug rick")
-    response = model.predict(
-    """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
+
+
+   # response = model.predict(
+    template= """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
 based on key facts from information provided
 Tells a Story
 Highlight the unobvious
@@ -47,8 +64,14 @@ Stunning large late 80s contemporary home with soaring ceilings and windows, spl
 input: {input_text} 
 
 
-""".format(input_text=input_text),
-    **parameters
-)
-    print(response.text)
-    return response.text 
+"""
+    prompt = PromptTemplate(
+    input_variables=["input_text"],
+    template=template,
+    )
+
+    final_prompt = prompt.format(input_text=input_text)
+    response=llm.predict(prompt=final_prompt, parameters=parameters)
+    print(response)
+    
+    return response
