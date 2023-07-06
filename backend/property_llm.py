@@ -71,7 +71,7 @@ input: {input_text}
     )
 
     final_prompt = prompt.format(input_text=input_text)
-    response=llm.predict(prompt=final_prompt, parameters=parameters)
+    response=llm(final_prompt)
     print(response)
     
     return response
