@@ -4,7 +4,7 @@ from google.cloud import aiplatform
 
 def predict_llm_property( input_text: str):
     
-    vertexai.init(project="rick-vertex-ai", location="us-central1")
+    #vertexai.init(project="rick-vertex-ai", location="us-central1")
     parameters = {
       "temperature": 0.8,
       "max_output_tokens": 512,
@@ -12,7 +12,7 @@ def predict_llm_property( input_text: str):
       "top_k": 35
     }
 
-    model = TextGenerationModel.from_pretrained("text-bison@001")
+    model = TextGenerationModel.from_pretrained()
     print("debug rick")
     response = model.predict(
     """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
