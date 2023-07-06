@@ -5,7 +5,7 @@ from backend.property_llm import predict_llm_property
 app = Flask(__name__)
 
 @app.route("/submit")
-def index():
+def submit():
     # Get the input from the user
     input_text = request.form.get("input_text")
     option_text = request.form['options']
