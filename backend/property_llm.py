@@ -20,12 +20,13 @@ def predict_llm_property( input_text: str):
 
     #model = TextGenerationModel.from_pretrained("text-bison@001")
     llm = VertexAI(
-      model_name='text-bison@001',
-      max_output_tokens=500,
-      temperature=0.8,
-      top_p=0.8,
-      verbose=True,
-    )    
+    model_name='text-bison@001',
+    max_output_tokens=256,
+    temperature=0.8,
+    top_p=0.8,
+    top_k=35,
+    verbose=True,
+   ) 
     
     print("debug rick")
 
