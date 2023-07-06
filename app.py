@@ -8,6 +8,7 @@ app = Flask(__name__)
 def submit():
     # Get the input from the user
     input_text = request.form.get("input_text")
+    app.logger.info('%s input text:', input_text)
     option_text = request.form['options']
     
     output_text=predict_llm_property(input_text)
