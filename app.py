@@ -10,8 +10,9 @@ def submit():
     input_text = request.form.get("input_text")
     
     option_text = request.form.get("options")
-    app.logger.info('Checked: %s ', option_text)
+    
     output_text=predict_llm_property(input_text)
+    app.logger.info('output: %s ', output_text)
     return render_template("index.html", input_text=input_text, options=option_text, output_text=output_text)
 
 @app.route("/")

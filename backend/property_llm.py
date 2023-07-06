@@ -16,7 +16,7 @@ def predict_llm_property(input_text):
     llm = VertexAI(
     model_name='text-bison@001',
     max_output_tokens=256,
-    temperature=0.1,
+    temperature=0.8,
     top_p=0.8,
     top_k=40,
     verbose=True,
