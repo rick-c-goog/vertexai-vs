@@ -1,7 +1,9 @@
 import vertexai
 from langchain.llms import VertexAI
 from langchain import PromptTemplate
-
+from google.cloud import aiplatform
+from google.protobuf import json_format
+from google.protobuf.struct_pb2 import Value
 
 
 def predict_llm_property(input_text):
