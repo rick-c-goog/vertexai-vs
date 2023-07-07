@@ -11,14 +11,15 @@ def submit():
     
     option_text = request.form.get("options")
     
-    output_text=predict_llm_property("who am I")
+    output_text=predict_llm_property(input_text)
     app.logger.info('output: %s ', output_text)
-    return render_template("index.html", output_text=output_text)
+    return render_template("index.html", input_text=input_text,output_text=output_text)
 
 @app.route("/")
 def index():
+    input_text="enter info:"
     output_text=""
-    return render_template("index.html",output_text=output_text)
+    return render_template("index.html",input_text=input_text,output_text=output_text)
 if __name__ == "__main__":
     app.run(debug=True)
 
