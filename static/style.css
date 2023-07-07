@@ -41,7 +41,7 @@ textarea {
     display: block;
     box-sizing: border-box;
     width: 100%;
-    height: 30rem;
+    height: 20rem;
     padding: 0.5rem 0.75rem;
   }
 
@@ -101,6 +101,7 @@ input[type="radio"]:checked {
   button[type="submit"] {
     background-color: hsl(213, 73%, 50%);
     color: white;
+    height: 10rem;
   }
   
   button[type="reset"] {
