@@ -8,7 +8,7 @@ import langchain
 from langchain.llms import VertexAI
 from langchain import PromptTemplate
 
-def predict_llm_property( input_text: str):
+def predict_llm_property( input_text: str, option: str):
     
     vertexai.init(project="rick-vertex-ai", location="us-central1")
     parameters = {
@@ -32,7 +32,7 @@ def predict_llm_property( input_text: str):
 
 
    # response = model.predict(
-    template= """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
+    template_rewrite= """You are real estate agent, you need to re-write and publish property listing that is attractive to potential buyers with following requirements:
 based on key facts from information provided
 Tells a Story
 Highlight the unobvious
@@ -65,6 +65,33 @@ input: {input_text}
 
 
 """
+    template_summary="""
+You are real estate agent. Write summary of property description in 100 words with key facts and impress potential buys  to buy property immediately:
+
+input: {input_text} 
+    
+   """
+    
+    template_openhouse="""
+You are real estate agent, write open-house announcement based on facts provided, need to draw more attendance from potential buyer and have funs in open house event. 
+
+input: {input_text} 
+    
+   """
+    template_email="""
+You are an marketing analyst for real estate company, write email to recommend the property to subscribers. Email should in a funny, exciting format that the email receivers would be keen to inquire or buy the property
+input: {input_text} 
+    
+   """
+    if(option=='openhouse;'):
+        template = template_openhouse
+    elif(option=='email'):
+        template = template_email
+    elif(option=='rewrite'):
+        template = template_rewrite
+    elif(option=='summary'):
+        template = template_summary
+  
     prompt = PromptTemplate(
     input_variables=["input_text"],
     template=template,
