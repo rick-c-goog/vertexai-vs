@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1>Real Estate AI Assistant</h1>
+    <h1><p style="text-align:center">Real Estate AI Assistant</p></h1>
     <form action="/submit" method="post">
         <div class="col-25">
          <label for="input_text" class="large-label">About Property:</label><br>
@@ -25,12 +25,13 @@
            <input type="radio" id="open" name="options" value="openhouse"/>
           
         </fieldset>
+        <br/>
         </div>
         <div class="col-25">
           <label for="output_text" class="large-label">AI Output:</label>
          </div>
           <div class="col-75">
-            <input type="textarea" rows="5" cols="60" id="output_text" name="output_text" value="{{output_text}}"><br/>
+            <input type="textarea" rows="5" cols="60" id="output_text" name="output_text" value="{{output_text}}" style="height:200px"><br/>
            </div>
        <div class="row">
          <input type="submit" value="Submit">
