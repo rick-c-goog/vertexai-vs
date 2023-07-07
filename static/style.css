@@ -5,7 +5,7 @@
   
   .large-label {
     display: inline-block;
-    font: bold 1.5rem sans-serif;
+    font: bold 1.0rem sans-serif;
     margin-bottom: 0.5rem;
   }
   .small-label {
@@ -53,14 +53,14 @@
   /* Floating column for labels: 25% width */
   .col-25 {
     float: left;
-    width: 25%;
+    width: 10%;
     margin-top: 6px;
   }
   
   /* Floating column for inputs: 75% width */
   .col-75 {
     float: left;
-    width: 75%;
+    width: 90%;
     margin-top: 6px;
   }
   
