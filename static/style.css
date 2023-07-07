@@ -101,7 +101,7 @@ input[type="radio"]:checked {
   button[type="submit"] {
     background-color: hsl(213, 73%, 50%);
     color: white;
-    height: 10rem;
+    height: 1.5rem;
   }
   
   button[type="reset"] {
