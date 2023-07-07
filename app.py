@@ -11,7 +11,7 @@ def submit():
     
     option_text = request.form.get("options")
     
-    output_text=predict_llm_property(input_text)
+    output_text=predict_llm_property(input_text, option_text)
     app.logger.info('output: %s ', output_text)
     return render_template("index.html", input_text=input_text,output_text=output_text)
 

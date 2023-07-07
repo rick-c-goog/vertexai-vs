@@ -98,15 +98,6 @@ input[type="radio"]:checked {
     font: 1.25rem sans-serif;
   }
 
-  button[type="submit"] {
-    background-color: hsl(213, 73%, 50%);
-    color: white;
-    height: 1.5rem;
-  }
-  
-  button[type="reset"] {
-    text-decoration: underline;
-    margin-left: 1rem;
-  }
+
 
 
