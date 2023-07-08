@@ -15,9 +15,11 @@
 
   input[type=textarea] {
     white-space: normal;
-    overflow: hidden;
     position: relative;
     top: 0;
+    text-anchor: start;
+    text-align: justify;
+    
     width: 50%;
     height: 150px;
     padding: 0;
@@ -26,7 +28,7 @@
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
-    font-size: 24px;
+    font-size: 12px;
     resize: none;
    /* float: left; */
    
@@ -67,12 +69,9 @@
   /* Floating column for inputs: 75% width */
   .col-75 {
     float: left;
-    width: 50%;
+    width: 90%;
     margin-top: 0;
-    justify-content: normal;
-    word-break: break-all;
-    padding-top: 0;
-    border-top-width: 0;
+    
   }
   
   /* Clear floats after the columns */
