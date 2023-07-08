@@ -23,6 +23,7 @@
     box-sizing: border-box;
     resize: vertical;
     vertical-align: top;
+    text-align: start;
     float: left;
   }
   
