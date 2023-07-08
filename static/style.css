@@ -16,7 +16,9 @@
 
   input[type=text], select, 
   input[type=textarea] {
-    
+    cursor: text;
+    position: relative;
+    top: 0;
     width: 50%;
     height: 150px;
     padding: 12px 20px;
