@@ -19,7 +19,7 @@
     
     width: 50%;
     height: 150px;
-    padding: 12px;
+    padding: 0;
     padding-top: 0;
     border-top-width: 0;
     border: 1px solid #ccc;
@@ -71,8 +71,10 @@
     float: left;
     width: 90%;
     margin-top: 6px;
-   
+    justify-content: left;
     word-break: break-all;
+    padding-top: 0;
+    border-top-width: 0;
   }
   
   /* Clear floats after the columns */
