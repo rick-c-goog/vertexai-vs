@@ -17,7 +17,7 @@ def submit():
 
 @app.route("/")
 def index():
-    input_text="enter info:"
+    input_text=""
     output_text=""
     return render_template("index.html",input_text=input_text,output_text=output_text)
 if __name__ == "__main__":

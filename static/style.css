@@ -16,7 +16,6 @@
   input[type=textarea] {
     white-space: normal;
     overflow: hidden;
-    cursor: text;
     position: relative;
     top: 0;
     width: 50%;
