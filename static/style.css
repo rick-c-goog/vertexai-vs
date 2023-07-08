@@ -13,7 +13,7 @@
     font: 1.25rem sans-serif;
   }
 
-  input[type=textarea] {
+  textarea {
     white-space: normal;
     position: relative;
     top: 0;
