@@ -21,6 +21,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
+    float: left;
   }
   
   /* Style the label to display next to the inputs */
@@ -38,6 +39,7 @@
     border-radius: 4px;
     cursor: pointer;
     float: center;
+    vertical-align: top;
   }
   
   /* Style the container */
