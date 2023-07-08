@@ -18,7 +18,7 @@
   input[type=textarea] {
     
     width: 50%;
-    height: 150px;
+    height: 100px;
     padding: 0;
     padding-top: 0;
     border-top-width: 0;
@@ -26,7 +26,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     word-wrap: break-word;
-    resize: none;
+    resize: vertical;
     overflow-y: 0;
     text-align: left;
     vertical-align: top;
