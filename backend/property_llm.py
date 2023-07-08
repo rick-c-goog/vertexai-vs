@@ -83,7 +83,7 @@ You are an marketing analyst for real estate company, write email to recommend t
 input: {input_text} 
     
    """
-    if(option=='openhouse;'):
+    if(option=='openhouse'):
         template = template_openhouse
     elif(option=='email'):
         template = template_email
