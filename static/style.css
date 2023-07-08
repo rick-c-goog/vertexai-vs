@@ -71,6 +71,8 @@
     float: left;
     width: 90%;
     margin-top: 6px;
+    max-width: 100px;
+    word-break: break-all;
   }
   
   /* Clear floats after the columns */
